@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>コマンドプロンプト起動</title>
+  <style>
+    /* スタイルの設定 */
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>コマンドプロンプト起動</h1>
+    <button class="btn" id="startBtn">スタート</button>
+  </div>
+
+  <script>
+    // スタートボタンがクリックされたときの処理
+    document.getElementById("startBtn").addEventListener("click", function() {
+      // バックエンドにリクエストを送信
+      fetch("/startCommandPrompt")
+        .then(function(response) {
+          if (response.ok) {
+            console.log("コマンドプロンプトが起動しました。");
+          } else {
+            console.log("エラーが発生しました。");
+          }
+        })
+        .catch(function(error) {
+          console.log("ネットワークエラーが発生しました。");
+        });
+    });
+  </script>
+</body>
+</html>
